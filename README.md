@@ -3,5 +3,4 @@ vercel hosted app that automatically commits and pushes to github to save a stre
 
 
 repo queued after :
-C-compiler
 mhd_sql
