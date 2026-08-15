@@ -1,9 +1,7 @@
-from http.cookiejar import request_port
-
-import pygithub
+import sys
 from dotenv import load_dotenv
 import os
-
+from github import Auth
 def initiate():
     load_dotenv()
     token =os.getenv('TOKEN')
@@ -11,10 +9,9 @@ def initiate():
     username = os.getenv('USER_NAME')
     if token is None:
         print("nigga put the damn token")
-    if repo is None:
-        print("nigga put the damn repo name")
-    if username is None:
-        print("nigga put the damn username")
+        sys.exit(1)
+    auth = Auth.Token(token)
+    return auth
 
 
 
