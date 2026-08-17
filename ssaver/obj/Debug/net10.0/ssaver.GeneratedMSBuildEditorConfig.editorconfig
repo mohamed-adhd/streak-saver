@@ -31,5 +31,8 @@ build_property.EnableCodeStyleSeverity =
 [/home/bro/my-creations/streak-saver/ssaver/App.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
+[/home/bro/my-creations/streak-saver/ssaver/Views/configs.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
 [/home/bro/my-creations/streak-saver/ssaver/Views/MainWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
