@@ -2,9 +2,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:ssaver.ViewModels"
              mc:Ignorable="d" d:DesignWidth="420" d:DesignHeight="800"
-             x:Class="ssaver.Views.configs">
-
+             x:Class="ssaver.Views.configs"
+             x:DataType="vm:configsViewModel">
   <UserControl.Styles>
 
     <!-- Field label -->
@@ -154,7 +155,7 @@
                 Classes="verify"
                 HorizontalAlignment="Stretch"
                 HorizontalContentAlignment="Center"
-                Command="{Binding OnVerifyClickedCommand}"/>
+                Command="{Binding }"/>
 
         <TextBlock Text="by pressing verify you agree that we may fuck up everything"
                    FontSize="11"

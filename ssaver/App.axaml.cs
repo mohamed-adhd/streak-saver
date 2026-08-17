@@ -5,7 +5,8 @@ using Avalonia.Data.Core.Plugins;
 using System.Linq;
 using Avalonia.Markup.Xaml;
 using ssaver.ViewModels;
-using ssaver.Views; 
+using ssaver.Views;
+
 namespace ssaver;
 
 public partial class App : Application
@@ -19,12 +20,11 @@ public partial class App : Application
     {
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
-            desktop.MainWindow = new welcome
+            desktop.MainWindow = new MainWindow
             {
-                DataContext = new welcomeViewModel(),
+                DataContext = new MainWindowViewModel(),
             };
         }
-
         base.OnFrameworkInitializationCompleted();
     }
 }
