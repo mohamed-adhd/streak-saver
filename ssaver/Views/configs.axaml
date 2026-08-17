@@ -3,7 +3,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="420" d:DesignHeight="800"
-             x:Class="StreakSaver.Views.configs">
+             x:Class="ssaver.Views.configs">
 
   <UserControl.Styles>
 
@@ -93,7 +93,7 @@
 
   <Grid>
     <Grid.Background>
-      <RadialGradientBrush Center="50%,20%" GradientOrigin="50%,20%" Radius="0.9">
+      <RadialGradientBrush Center="50%,20%" GradientOrigin="50%,20%" RadiusX="0.9">
         <GradientStop Color="#FF1B1B26" Offset="0"/>
         <GradientStop Color="#FF0D0D12" Offset="1"/>
       </RadialGradientBrush>
@@ -154,7 +154,7 @@
                 Classes="verify"
                 HorizontalAlignment="Stretch"
                 HorizontalContentAlignment="Center"
-                Click="OnVerifyClicked"/>
+                Command="{Binding OnVerifyClickedCommand}"/>
 
         <TextBlock Text="by pressing verify you agree that we may fuck up everything"
                    FontSize="11"

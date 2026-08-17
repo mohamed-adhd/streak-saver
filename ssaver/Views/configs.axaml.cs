@@ -1,11 +1,11 @@
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 
-namespace StreakSaver.Views
+namespace ssaver.Views
 {
-    public partial class SetupPage : UserControl
+    public partial class configs : UserControl
     {
-        public SetupPage()
+        public configs()
         {
             InitializeComponent();
         }

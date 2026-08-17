@@ -89,7 +89,7 @@
                 Classes="setup"
                 HorizontalAlignment="Stretch"
                 HorizontalContentAlignment="Center"
-                Command="{Binding com}"/>
+                Command="{Binding  }"/>
 
         <TextBlock Text="made by mohamed-adhd"
                    FontSize="12"
