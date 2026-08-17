@@ -3,9 +3,11 @@ using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace ssaver.ViewModels;
 
-public partial class MainWindowViewModel : ViewModelBase
+public partial class welcomeViewModel : ViewModelBase
 {
     [ObservableProperty] private ViewModelBase current_page;
+    
+    
     [RelayCommand]
     public void clik()
     {

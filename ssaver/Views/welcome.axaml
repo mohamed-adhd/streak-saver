@@ -3,7 +3,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="420" d:DesignHeight="800"
-             x:Class="StreakSaver.Views.IntroPage">
+             x:Class="ssaver.Views.WelcomePage">
 
   <UserControl.Styles>
     <!-- Setup button base style -->
@@ -89,7 +89,7 @@
                 Classes="setup"
                 HorizontalAlignment="Stretch"
                 HorizontalContentAlignment="Center"
-                Command="{Binding ClikCommand}"/>
+                Command="{Binding com}"/>
 
         <TextBlock Text="made by mohamed-adhd"
                    FontSize="12"

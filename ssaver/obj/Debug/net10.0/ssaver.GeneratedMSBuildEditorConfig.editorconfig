@@ -34,5 +34,5 @@ build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 [/home/bro/my-creations/streak-saver/ssaver/Views/configs.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[/home/bro/my-creations/streak-saver/ssaver/Views/MainWindow.axaml]
+[/home/bro/my-creations/streak-saver/ssaver/Views/welcome.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
