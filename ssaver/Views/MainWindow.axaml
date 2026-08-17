@@ -1,20 +1,104 @@
-<Window xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:vm="using:ssaver.ViewModels"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-        x:Class="ssaver.Views.MainWindow"
-        x:DataType="vm:MainWindowViewModel"
-        Icon="/Assets/avalonia-logo.ico"
-        Title="ssaver">
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="420" d:DesignHeight="800"
+             x:Class="StreakSaver.Views.IntroPage">
 
-    <Design.DataContext>
-        <!-- This only sets the DataContext for the previewer in an IDE,
-             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
-        <vm:MainWindowViewModel/>
-    </Design.DataContext>
+  <UserControl.Styles>
+    <!-- Setup button base style -->
+    <Style Selector="Button.setup">
+      <Setter Property="Background" Value="#FF5B4CFF"/>
+      <Setter Property="Foreground" Value="White"/>
+      <Setter Property="FontSize" Value="16"/>
+      <Setter Property="FontWeight" Value="SemiBold"/>
+      <Setter Property="Padding" Value="0,14"/>
+      <Setter Property="CornerRadius" Value="14"/>
+      <Setter Property="Cursor" Value="Hand"/>
+      <Setter Property="Transitions">
+        <Transitions>
+          <BrushTransition Property="Background" Duration="0:0:0.15"/>
+          <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.12"/>
+        </Transitions>
+      </Setter>
+    </Style>
+    <Style Selector="Button.setup:pointerover /template/ ContentPresenter">
+      <Setter Property="Background" Value="#FF6E60FF"/>
+    </Style>
+    <Style Selector="Button.setup:pressed">
+      <Setter Property="RenderTransform" Value="scale(0.97)"/>
+    </Style>
+  </UserControl.Styles>
 
-    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+  <Grid>
+    <!-- Background: deep charcoal with subtle radial glow -->
+    <Grid.Background>
+      <RadialGradientBrush Center="50%,30%" GradientOrigin="50%,30%" RadiusX="0.9">
+        <GradientStop Color="#FF1B1B26" Offset="0"/>
+        <GradientStop Color="#FF0D0D12" Offset="1"/>
+      </RadialGradientBrush>
+    </Grid.Background>
 
-</Window>
+    <Grid RowDefinitions="*,Auto,*,Auto" Margin="36,0,36,48">
+
+      <!-- Spacer -->
+      <Border Grid.Row="0"/>
+
+      <!-- Title block, vertically centered -->
+      <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="10">
+
+        <!-- Small kicker -->
+        <TextBlock Text="WELCOME TO"
+                   FontSize="13"
+                   FontWeight="Medium"
+                   LetterSpacing="4"
+                   Foreground="#FF8A8A9A"
+                   HorizontalAlignment="Center"/>
+
+        <!-- Big app name -->
+        <TextBlock Text="Streak Saver"
+                   FontSize="46"
+                   FontWeight="Bold"
+                   Foreground="White"
+                   HorizontalAlignment="Center"
+                   TextAlignment="Center">
+          <TextBlock.Effect>
+            <DropShadowEffect BlurRadius="30" Color="#FF5B4CFF" OffsetX="0" OffsetY="0" Opacity="0.35"/>
+          </TextBlock.Effect>
+        </TextBlock>
+
+        <!-- Accent underline -->
+        <Border Width="56" Height="4" CornerRadius="2" Margin="0,6,0,0" HorizontalAlignment="Center">
+          <Border.Background>
+            <LinearGradientBrush StartPoint="0%,0%" EndPoint="100%,0%">
+              <GradientStop Color="#FF5B4CFF" Offset="0"/>
+              <GradientStop Color="#FF8F6BFF" Offset="1"/>
+            </LinearGradientBrush>
+          </Border.Background>
+        </Border>
+
+      </StackPanel>
+
+      <!-- Spacer -->
+      <Border Grid.Row="2"/>
+
+      <!-- Bottom: setup button + credit -->
+      <StackPanel Grid.Row="3" Spacing="18">
+
+        <Button Content="Setup"
+                Classes="setup"
+                HorizontalAlignment="Stretch"
+                HorizontalContentAlignment="Center"
+                Click="clik"/>
+
+        <TextBlock Text="made by mohamed-adhd"
+                   FontSize="12"
+                   Foreground="#FF5C5C6B"
+                   HorizontalAlignment="Center"/>
+
+      </StackPanel>
+
+    </Grid>
+  </Grid>
+
+</UserControl>

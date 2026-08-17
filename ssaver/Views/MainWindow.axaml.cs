@@ -1,11 +1,18 @@
 using Avalonia.Controls;
+using Avalonia.Interactivity;
 
-namespace ssaver.Views;
-
-public partial class MainWindow : Window
+namespace StreakSaver.Views
 {
-    public MainWindow()
+    public partial class IntroPage : UserControl
     {
-        InitializeComponent();
+        public IntroPage()
+        {
+            InitializeComponent();
+        }
+
+        private void OnSetupClicked(object? sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }
