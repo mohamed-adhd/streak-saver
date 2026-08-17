@@ -1,0 +1,171 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="420" d:DesignHeight="800"
+             x:Class="StreakSaver.Views.SetupPage">
+
+  <UserControl.Styles>
+
+    <!-- Field label -->
+    <Style Selector="TextBlock.fieldLabel">
+      <Setter Property="FontSize" Value="12"/>
+      <Setter Property="FontWeight" Value="Medium"/>
+      <Setter Property="LetterSpacing" Value="1.5"/>
+      <Setter Property="Foreground" Value="#FF8A8A9A"/>
+      <Setter Property="Margin" Value="2,0,0,7"/>
+    </Style>
+
+    <!-- Text input -->
+    <Style Selector="TextBox.field">
+      <Setter Property="Background" Value="#FF1B1B24"/>
+      <Setter Property="Foreground" Value="White"/>
+      <Setter Property="CaretBrush" Value="#FF8F6BFF"/>
+      <Setter Property="BorderBrush" Value="#FF2C2C38"/>
+      <Setter Property="BorderThickness" Value="1"/>
+      <Setter Property="CornerRadius" Value="12"/>
+      <Setter Property="Padding" Value="14,12"/>
+      <Setter Property="FontSize" Value="15"/>
+      <Setter Property="SelectionBrush" Value="#665B4CFF"/>
+      <Setter Property="Transitions">
+        <Transitions>
+          <BrushTransition Property="BorderBrush" Duration="0:0:0.15"/>
+        </Transitions>
+      </Setter>
+    </Style>
+    <Style Selector="TextBox.field:focus /template/ Border#PART_BorderElement">
+      <Setter Property="BorderBrush" Value="#FF5B4CFF"/>
+    </Style>
+    <Style Selector="TextBox.field:pointerover /template/ Border#PART_BorderElement">
+      <Setter Property="BorderBrush" Value="#FF3A3A48"/>
+    </Style>
+
+    <!-- Small reveal toggle button -->
+    <Style Selector="ToggleButton.reveal">
+      <Setter Property="Background" Value="Transparent"/>
+      <Setter Property="Foreground" Value="#FF8A8A9A"/>
+      <Setter Property="FontSize" Value="11"/>
+      <Setter Property="FontWeight" Value="SemiBold"/>
+      <Setter Property="LetterSpacing" Value="1"/>
+      <Setter Property="Padding" Value="10,6"/>
+      <Setter Property="CornerRadius" Value="8"/>
+      <Setter Property="Cursor" Value="Hand"/>
+      <Setter Property="Transitions">
+        <Transitions>
+          <BrushTransition Property="Background" Duration="0:0:0.12"/>
+        </Transitions>
+      </Setter>
+    </Style>
+    <Style Selector="ToggleButton.reveal:pointerover /template/ ContentPresenter">
+      <Setter Property="Background" Value="#FF23232E"/>
+    </Style>
+    <Style Selector="ToggleButton.reveal:checked /template/ ContentPresenter">
+      <Setter Property="Background" Value="#FF2C2C3A"/>
+    </Style>
+    <Style Selector="ToggleButton.reveal:checked">
+      <Setter Property="Foreground" Value="#FFB9AFFF"/>
+    </Style>
+
+    <!-- Verify button -->
+    <Style Selector="Button.verify">
+      <Setter Property="Background" Value="#FF5B4CFF"/>
+      <Setter Property="Foreground" Value="White"/>
+      <Setter Property="FontSize" Value="16"/>
+      <Setter Property="FontWeight" Value="SemiBold"/>
+      <Setter Property="Padding" Value="0,14"/>
+      <Setter Property="CornerRadius" Value="14"/>
+      <Setter Property="Cursor" Value="Hand"/>
+      <Setter Property="Transitions">
+        <Transitions>
+          <BrushTransition Property="Background" Duration="0:0:0.15"/>
+          <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.12"/>
+        </Transitions>
+      </Setter>
+    </Style>
+    <Style Selector="Button.verify:pointerover /template/ ContentPresenter">
+      <Setter Property="Background" Value="#FF6E60FF"/>
+    </Style>
+    <Style Selector="Button.verify:pressed">
+      <Setter Property="RenderTransform" Value="scale(0.97)"/>
+    </Style>
+
+  </UserControl.Styles>
+
+  <Grid>
+    <Grid.Background>
+      <RadialGradientBrush Center="50%,20%" GradientOrigin="50%,20%" Radius="0.9">
+        <GradientStop Color="#FF1B1B26" Offset="0"/>
+        <GradientStop Color="#FF0D0D12" Offset="1"/>
+      </RadialGradientBrush>
+    </Grid.Background>
+
+    <Grid RowDefinitions="Auto,*,Auto" Margin="32,56,32,40">
+
+      <!-- Header -->
+      <StackPanel Grid.Row="0" Spacing="6" Margin="0,0,0,32">
+        <TextBlock Text="SETUP" FontSize="13" FontWeight="Medium" LetterSpacing="4" Foreground="#FF8A8A9A"/>
+        <TextBlock Text="Connect your repo" FontSize="28" FontWeight="Bold" Foreground="White"/>
+      </StackPanel>
+
+      <!-- Form -->
+      <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+        <StackPanel Spacing="22">
+
+          <StackPanel Spacing="0">
+            <TextBlock Text="USERNAME" Classes="fieldLabel"/>
+            <TextBox x:Name="UsernameBox" Classes="field" Watermark="e.g. mohamed-adhd"/>
+          </StackPanel>
+
+          <StackPanel Spacing="0">
+            <TextBlock Text="REPO NAME" Classes="fieldLabel"/>
+            <TextBox x:Name="RepoNameBox" Classes="field" Watermark="e.g. streak-saver-data"/>
+          </StackPanel>
+
+          <StackPanel Spacing="0">
+            <TextBlock Text="FILE PATH IN REPO" Classes="fieldLabel"/>
+            <TextBox x:Name="FilePathBox" Classes="field" Watermark="e.g. data/streaks.json"/>
+          </StackPanel>
+
+          <StackPanel Spacing="0">
+            <TextBlock Text="ACCESS TOKEN" Classes="fieldLabel"/>
+            <Grid ColumnDefinitions="*,Auto">
+              <TextBox x:Name="TokenBox"
+                       Classes="field"
+                       Grid.Column="0"
+                       Watermark="ghp_..."
+                       PasswordChar="•"
+                       RevealPassword="{Binding #RevealToggle.IsChecked}"
+                       Margin="0,0,8,0"/>
+              <ToggleButton x:Name="RevealToggle"
+                            Classes="reveal"
+                            Grid.Column="1"
+                            VerticalAlignment="Stretch"
+                            Content="SHOW"/>
+            </Grid>
+          </StackPanel>
+
+        </StackPanel>
+      </ScrollViewer>
+
+      <!-- Bottom: verify + disclaimer -->
+      <StackPanel Grid.Row="2" Spacing="14" Margin="0,24,0,0">
+
+        <Button Content="Verify"
+                Classes="verify"
+                HorizontalAlignment="Stretch"
+                HorizontalContentAlignment="Center"
+                Click="OnVerifyClicked"/>
+
+        <TextBlock Text="by pressing verify you agree that we may fuck up everything"
+                   FontSize="11"
+                   Foreground="#FF5C5C6B"
+                   TextAlignment="Center"
+                   TextWrapping="Wrap"
+                   HorizontalAlignment="Center"/>
+
+      </StackPanel>
+
+    </Grid>
+  </Grid>
+
+</UserControl>

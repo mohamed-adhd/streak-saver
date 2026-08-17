@@ -89,7 +89,7 @@
                 Classes="setup"
                 HorizontalAlignment="Stretch"
                 HorizontalContentAlignment="Center"
-                Click="clik"/>
+                Command="{Binding ClikCommand}"/>
 
         <TextBlock Text="made by mohamed-adhd"
                    FontSize="12"
