@@ -2,8 +2,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:ssaver.ViewModels"
              mc:Ignorable="d" d:DesignWidth="420" d:DesignHeight="800"
-             x:Class="StreakSaver.Views.DonePage">
+             x:Class="ssaver.Views.DoneView"
+             x:DataType="vm:DoneViewModel">
+
 
   <UserControl.Styles>
     <Style Selector="Button.exit">
@@ -31,7 +34,7 @@
 
   <Grid>
     <Grid.Background>
-      <RadialGradientBrush Center="50%,30%" GradientOrigin="50%,30%" Radius="0.9">
+      <RadialGradientBrush Center="50%,30%" GradientOrigin="50%,30%" RadiusX="0.9">
         <GradientStop Color="#FF1B1B26" Offset="0"/>
         <GradientStop Color="#FF0D0D12" Offset="1"/>
       </RadialGradientBrush>
@@ -91,7 +94,7 @@
               Classes="exit"
               HorizontalAlignment="Stretch"
               HorizontalContentAlignment="Center"
-              Click="OnExitClicked"/>
+              Command="{Binding ExitClickedCommand}"/>
 
     </Grid>
   </Grid>

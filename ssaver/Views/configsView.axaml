@@ -155,7 +155,7 @@
                 Classes="verify"
                 HorizontalAlignment="Stretch"
                 HorizontalContentAlignment="Center"
-                Command="{Binding }"/>
+                Command="{Binding onVerifyClickedCommand}"/>
 
         <TextBlock Text="by pressing verify you agree that we may fuck up everything"
                    FontSize="11"

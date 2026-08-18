@@ -1,5 +1,7 @@
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.ComponentModel;
+using Avalonia.Controls;
+using Avalonia.Interactivity;
 
 namespace ssaver.ViewModels;
 
@@ -13,8 +15,8 @@ public partial class configsViewModel : ViewModelBase
         
     }
     [RelayCommand]
-    public void onVerifyClicked()
+    private void onVerifyClicked()
     {
-        return;
+        _main.Current_page = new DoneViewModel();
     }
 }
