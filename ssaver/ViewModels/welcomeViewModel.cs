@@ -16,7 +16,7 @@ public partial class welcomeViewModel : ViewModelBase
     [RelayCommand]
     public void clik()
     {
-        _main.Current_page = new configsViewModel();
+        _main.Current_page = new configsViewModel(_main);
     }
     
 }
