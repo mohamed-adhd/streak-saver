@@ -4,6 +4,6 @@
         x:Class="ssaver.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Title="Streak Saver"
-        Width="420" Height="800">
+        Width="1280" Height="720">
     <ContentControl Content="{Binding Current_page}"/>
 </Window>

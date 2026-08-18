@@ -3,7 +3,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="using:ssaver.ViewModels"
-             mc:Ignorable="d" d:DesignWidth="420" d:DesignHeight="800"
+             mc:Ignorable="d" d:DesignWidth="1280" d:DesignHeight="720"
              x:Class="ssaver.Views.configs"
              x:DataType="vm:configsViewModel">
   <UserControl.Styles>
