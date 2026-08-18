@@ -1,0 +1,99 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="420" d:DesignHeight="800"
+             x:Class="StreakSaver.Views.DonePage">
+
+  <UserControl.Styles>
+    <Style Selector="Button.exit">
+      <Setter Property="Background" Value="#FF5B4CFF"/>
+      <Setter Property="Foreground" Value="White"/>
+      <Setter Property="FontSize" Value="16"/>
+      <Setter Property="FontWeight" Value="SemiBold"/>
+      <Setter Property="Padding" Value="0,14"/>
+      <Setter Property="CornerRadius" Value="14"/>
+      <Setter Property="Cursor" Value="Hand"/>
+      <Setter Property="Transitions">
+        <Transitions>
+          <BrushTransition Property="Background" Duration="0:0:0.15"/>
+          <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.12"/>
+        </Transitions>
+      </Setter>
+    </Style>
+    <Style Selector="Button.exit:pointerover /template/ ContentPresenter">
+      <Setter Property="Background" Value="#FF6E60FF"/>
+    </Style>
+    <Style Selector="Button.exit:pressed">
+      <Setter Property="RenderTransform" Value="scale(0.97)"/>
+    </Style>
+  </UserControl.Styles>
+
+  <Grid>
+    <Grid.Background>
+      <RadialGradientBrush Center="50%,30%" GradientOrigin="50%,30%" Radius="0.9">
+        <GradientStop Color="#FF1B1B26" Offset="0"/>
+        <GradientStop Color="#FF0D0D12" Offset="1"/>
+      </RadialGradientBrush>
+    </Grid.Background>
+
+    <Grid RowDefinitions="*,Auto,*,Auto" Margin="36,0,36,48">
+
+      <Border Grid.Row="0"/>
+
+      <!-- Center content -->
+      <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="18">
+
+        <!-- Checkmark badge -->
+        <Border Width="72" Height="72" CornerRadius="36" HorizontalAlignment="Center">
+          <Border.Background>
+            <LinearGradientBrush StartPoint="0%,0%" EndPoint="100%,100%">
+              <GradientStop Color="#FF5B4CFF" Offset="0"/>
+              <GradientStop Color="#FF8F6BFF" Offset="1"/>
+            </LinearGradientBrush>
+          </Border.Background>
+          <Border.Effect>
+            <DropShadowEffect BlurRadius="30" Color="#FF5B4CFF" OffsetX="0" OffsetY="0" Opacity="0.4"/>
+          </Border.Effect>
+          <Path Data="M6,13 L11,18 L22,6"
+                Stroke="White"
+                StrokeThickness="2.5"
+                StrokeJoin="Round"
+                StrokeLineCap="Round"
+                Width="28" Height="24"
+                Stretch="Uniform"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"/>
+        </Border>
+
+        <TextBlock Text="You're all set"
+                   FontSize="30"
+                   FontWeight="Bold"
+                   Foreground="White"
+                   HorizontalAlignment="Center"
+                   TextAlignment="Center"/>
+
+        <TextBlock Text="everything is set up twin, go enjoy your day :D"
+                   FontSize="15"
+                   Foreground="#FF9C9CAC"
+                   HorizontalAlignment="Center"
+                   TextAlignment="Center"
+                   TextWrapping="Wrap"
+                   Width="280"/>
+
+      </StackPanel>
+
+      <Border Grid.Row="2"/>
+
+      <!-- Exit button -->
+      <Button Grid.Row="3"
+              Content="Exit"
+              Classes="exit"
+              HorizontalAlignment="Stretch"
+              HorizontalContentAlignment="Center"
+              Click="OnExitClicked"/>
+
+    </Grid>
+  </Grid>
+
+</UserControl>
