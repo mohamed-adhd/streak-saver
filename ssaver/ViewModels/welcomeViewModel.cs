@@ -6,12 +6,17 @@ namespace ssaver.ViewModels;
 public partial class welcomeViewModel : ViewModelBase
 {
     [ObservableProperty] private ViewModelBase current_page;
-    
-    
+    [ObservableProperty] private MainWindowViewModel _main;
+
+    public welcomeViewModel(MainWindowViewModel main)
+    {
+        _main = main;
+        
+    }
     [RelayCommand]
     public void clik()
     {
-        current_page = new configsViewModel();
+        _main.Current_page = new configsViewModel();
     }
     
 }

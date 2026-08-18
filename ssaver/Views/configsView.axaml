@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="using:ssaver.ViewModels"
              mc:Ignorable="d" d:DesignWidth="1280" d:DesignHeight="720"
-             x:Class="ssaver.Views.configs"
+             x:Class="ssaver.Views.configsView"
              x:DataType="vm:configsViewModel">
   <UserControl.Styles>
 

@@ -1,11 +1,9 @@
 using Avalonia.Controls;
-
 namespace ssaver.Views
 {
-    public partial class MainWindow : Window
+    public partial class welcomeView : UserControl
     {
-        
-        public MainWindow()
+        public welcomeView()
         {
             InitializeComponent();
         }

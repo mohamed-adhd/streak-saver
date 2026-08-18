@@ -3,9 +3,9 @@ using Avalonia.Interactivity;
 
 namespace ssaver.Views
 {
-    public partial class configs : UserControl
+    public partial class configsView : UserControl
     {
-        public configs()
+        public configsView()
         {
             InitializeComponent();
         }

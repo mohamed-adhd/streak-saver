@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="using:ssaver.ViewModels"
              mc:Ignorable="d" d:DesignWidth="420" d:DesignHeight="800"
-             x:Class="ssaver.Views.welcome"
+             x:Class="ssaver.Views.welcomeView"
              x:DataType="vm:welcomeViewModel">
   <UserControl.Styles>
     <!-- Setup button base style -->
@@ -90,7 +90,7 @@
                 Classes="setup"
                 HorizontalAlignment="Stretch"
                 HorizontalContentAlignment="Center"
-                Command="{Binding  }"/>
+                Command="{Binding  clikCommand}"/>
 
         <TextBlock Text="made by mohamed-adhd"
                    FontSize="12"
