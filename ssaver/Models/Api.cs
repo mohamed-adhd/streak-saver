@@ -17,7 +17,7 @@ public class Api
         var content = new StringContent(json,Encoding.UTF8,"application/json");
         
         
-        HttpResponseMessage res = await client.PostAsync("https://streak-saver-six.vercel.app/status", content);        
+        HttpResponseMessage res = await client.PostAsync("https://streak-saver-six.vercel.app/setup", content);        
         string responseBody = await res.Content.ReadAsStringAsync();
         Console.WriteLine(responseBody);
         return 1;
