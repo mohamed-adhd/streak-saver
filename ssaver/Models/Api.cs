@@ -7,8 +7,9 @@ public class Api
     int send(string username, string repo, string file, string token)
     {
         HttpClient client = new HttpClient();
-        string data = @" [ {""username"": ""John Doe"", ""occupation"": ""gardener""}, {""name"": ""Peter Novak"", ""occupation"": ""driver""} ]";
+        string data = $@" [ {{""username"": ""{username}"", ""repo"": ""{repo}"",""file"",""{file}"",""token"",""{token}""}}]";
         using JsonDocument doc = JsonDocument.Parse(data);
-        JsonElement root = doc.RootElement;
+        HttpResponseMessage response =
+            await client.PostAsync("soon", content);
     }
 }
