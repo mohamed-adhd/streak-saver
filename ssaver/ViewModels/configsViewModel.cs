@@ -9,7 +9,7 @@ namespace ssaver.ViewModels;
 public partial class configsViewModel : ViewModelBase
 {
     [ObservableProperty] private MainWindowViewModel _main;
-    private Api s; 
+    private Api s =new Api(); 
     public configsViewModel(MainWindowViewModel main)
     {
         _main = main;
