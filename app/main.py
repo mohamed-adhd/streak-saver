@@ -2,6 +2,7 @@ from fastapi import FastAPI
 import app
 from upstash_redis import Redis
 import os
+import json
 from cryptography.fernet import Fernet
 from pydantic import BaseModel
 
@@ -33,9 +34,6 @@ def status():
     return {"status": "ok"}
 
 @app.post("/setup")
-import json
-
-@app.post("/setup")
 def setup(data: SetupRequest):
     encrypted_token = fernet.encrypt(data.token.encode()).decode()
     payload = {
@@ -56,7 +54,15 @@ def save():
 
 @app.get("/")
 def root():
-    return {"message": "Streak-Saver API"}
+    config = get_config()
+    if not config:
+        return {"error": "no config stored yet, call /setup first"}
+    return {
+        "token": config["token"] ,
+        "repo": config["repo"] ,
+        "file": config["file"] ,
+        "username": config["username"]
+    }
 
 
 def get_config():
