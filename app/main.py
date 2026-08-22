@@ -45,8 +45,7 @@ def setup(data: SetupRequest):
     redis.set(CONFIG_KEY, json.dumps(payload))
 
     return {
-        "username": data.username,
-        "repo": data.repo
+        "message": "done bitch"
     }
 @app.get("/save")
 def save():
