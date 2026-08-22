@@ -15,8 +15,6 @@ public class Api
         {username,repo,file,token};
         string json = JsonSerializer.Serialize(data);
         var content = new StringContent(json,Encoding.UTF8,"application/json");
-        
-        
         HttpResponseMessage res = await client.PostAsync("https://streak-saver-six.vercel.app/setup", content);        
         string responseBody = await res.Content.ReadAsStringAsync();
         Console.WriteLine(responseBody);
