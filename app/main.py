@@ -67,10 +67,10 @@ def cron():
     if not config:
         return {"error": "no config stored yet, call /setup first"}
     init.mainy(config["token"], config["repo"], config["file"], config["username"])
-    # get config/users from Redis
-    # check GitHub activity
-    # save streak if necessary
     return {"success": True}
+
+
+
 def get_config():
     raw = redis.get(CONFIG_KEY)
     if not raw:

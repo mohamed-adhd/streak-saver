@@ -1,4 +1,3 @@
-import auth
 import commits
 import client
 
