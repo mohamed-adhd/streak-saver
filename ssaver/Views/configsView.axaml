@@ -90,6 +90,12 @@
       <Setter Property="RenderTransform" Value="scale(0.97)"/>
     </Style>
 
+    <!-- Verify button disabled state -->
+    <Style Selector="Button.verify:disabled /template/ ContentPresenter">
+      <Setter Property="Background" Value="#FF3A3A48"/>
+      <Setter Property="Opacity" Value="0.6"/>
+    </Style>
+
   </UserControl.Styles>
 
   <Grid>
@@ -114,17 +120,26 @@
 
           <StackPanel Spacing="0">
             <TextBlock Text="USERNAME" Classes="fieldLabel"/>
-            <TextBox x:Name="UsernameBox" Classes="field" Watermark="e.g. mohamed-adhd"/>
+            <TextBox x:Name="UsernameBox"
+                     Classes="field"
+                     Watermark="e.g. mohamed-adhd"
+                     Text="{Binding Username, Mode=TwoWay}"/>
           </StackPanel>
 
           <StackPanel Spacing="0">
             <TextBlock Text="REPO NAME" Classes="fieldLabel"/>
-            <TextBox x:Name="RepoNameBox" Classes="field" Watermark="e.g. streak-saver-data"/>
+            <TextBox x:Name="RepoNameBox"
+                     Classes="field"
+                     Watermark="e.g. streak-saver-data"
+                     Text="{Binding RepoName, Mode=TwoWay}"/>
           </StackPanel>
 
           <StackPanel Spacing="0">
             <TextBlock Text="FILE PATH IN REPO" Classes="fieldLabel"/>
-            <TextBox x:Name="FilePathBox" Classes="field" Watermark="e.g. data/streaks.json"/>
+            <TextBox x:Name="FilePathBox"
+                     Classes="field"
+                     Watermark="e.g. data/streaks.json"
+                     Text="{Binding FilePath, Mode=TwoWay}"/>
           </StackPanel>
 
           <StackPanel Spacing="0">
@@ -136,6 +151,7 @@
                        Watermark="ghp_..."
                        PasswordChar="•"
                        RevealPassword="{Binding #RevealToggle.IsChecked}"
+                       Text="{Binding Token, Mode=TwoWay}"
                        Margin="0,0,8,0"/>
               <ToggleButton x:Name="RevealToggle"
                             Classes="reveal"

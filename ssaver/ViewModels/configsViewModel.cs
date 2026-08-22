@@ -9,6 +9,10 @@ namespace ssaver.ViewModels;
 public partial class configsViewModel : ViewModelBase
 {
     [ObservableProperty] private MainWindowViewModel _main;
+    [ObservableProperty] public string username;
+    [ObservableProperty] public string repoName;
+    [ObservableProperty] public string filePath;
+    [ObservableProperty] public string token;
     private Api s =new Api(); 
     public configsViewModel(MainWindowViewModel main)
     {
@@ -17,7 +21,7 @@ public partial class configsViewModel : ViewModelBase
     [RelayCommand]
     private void onVerifyClicked()
     {
-        s.send("verify","s","s","s");
+        s.send(Username,RepoName,FilePath,Token);
         _main.Current_page = new DoneViewModel();
     }
 }
