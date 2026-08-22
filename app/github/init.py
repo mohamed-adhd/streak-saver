@@ -1,5 +1,5 @@
-import commits
-import client
+from . import commits
+from . import client
 
 def mainy(token,repo,file,username):
     s=client.clinet_on(token)
