@@ -1,5 +1,4 @@
 from fastapi import FastAPI
-import app
 from upstash_redis import Redis
 import os
 import json
@@ -29,9 +28,6 @@ class SetupRequest(BaseModel):
     file: str
     token: str
 app = FastAPI()
-@app.post("/status")
-def status():
-    return {"status": "ok"}
 
 @app.post("/setup")
 def setup(data: SetupRequest):
@@ -51,8 +47,8 @@ def setup(data: SetupRequest):
 def save():
     return {"status": "saved"}
 
-@app.get("/")
-def root():
+@app.get("/status")
+def status():
     config = get_config()
     if not config:
         return {"error": "no config stored yet, call /setup first"}

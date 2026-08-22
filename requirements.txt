@@ -1,3 +1,5 @@
 dotenv
 fastapi
 pygithub
+cryptography
+upstash-redis

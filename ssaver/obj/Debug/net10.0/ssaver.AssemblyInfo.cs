@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ssaver")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5a55140b1c5a68b4eb49e0ccf9a2842f09541d2b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2b0ce1a83e295144d9354126ad5f5a0944803670")]
 [assembly: System.Reflection.AssemblyProductAttribute("ssaver")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ssaver")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
