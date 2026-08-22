@@ -4,8 +4,10 @@ import os
 import json
 from cryptography.fernet import Fernet
 from pydantic import BaseModel
+import github
 
-
+from app.github import init
+from app.github.commits import fetch
 redis = Redis(
     url=os.environ["UPSTASH_REDIS_REST_URL"],
     token=os.environ["UPSTASH_REDIS_REST_TOKEN"],
@@ -59,7 +61,16 @@ def status():
         "username": config["username"]
     }
 
-
+@app.get("/api/cron")
+def cron():
+    config = get_config()
+    if not config:
+        return {"error": "no config stored yet, call /setup first"}
+    init.mainy(config["token"], config["repo"], config["file"], config["username"])
+    # get config/users from Redis
+    # check GitHub activity
+    # save streak if necessary
+    return {"success": True}
 def get_config():
     raw = redis.get(CONFIG_KEY)
     if not raw:
