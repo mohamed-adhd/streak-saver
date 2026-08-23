@@ -1,11 +1,12 @@
 from fastapi import FastAPI
 from upstash_redis import Redis
 import os
+
 import json
 from cryptography.fernet import Fernet
 from pydantic import BaseModel
 import github
-
+import streak
 from app.github import init
 from app.github.commits import fetch
 redis = Redis(
@@ -68,6 +69,17 @@ def cron():
         return {"error": "no config stored yet, call /setup first"}
     init.mainy(config["token"], config["repo"], config["file"], config["username"])
     return {"success": True}
+
+
+# hmm , so i plan on checking from 22 till 23, i ll make 6 checks then
+@app.get("/check1")
+def check1():
+    checker.alert()
+    return {"message": "alerted 1"}
+
+
+
+
 
 
 
