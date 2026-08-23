@@ -75,7 +75,7 @@ def cron():
 @app.get("/check1")
 def check1():
     config = get_config()
-    if init.checky(config["username"])=="fucked":
+    if init.checky(config["token"], config["repo"], config["file"], config["username"])=="fucked":
         checker.alert(1)
         return {"message": "alerted 1"}
     else :
@@ -85,7 +85,7 @@ def check1():
 def check2():
     config = get_config()
 
-    if init.checky(config["username"]) == "fucked":
+    if init.checky(config["token"], config["repo"], config["file"], config["username"]) == "fucked":
         checker.alert(2)
         return {"message": "alerted 2"}
     else :
@@ -95,7 +95,7 @@ def check2():
 def check3():
     config = get_config()
 
-    if init.checky(config["username"]) == "fucked":
+    if init.checky(config["token"], config["repo"], config["file"], config["username"]) == "fucked":
         checker.alert(3)
         return {"message": "alerted 3"}
     else :
