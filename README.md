@@ -23,7 +23,6 @@ Your GitHub token is encrypted with Fernet before it's stored in Upstash Redis, 
 | Setup (connect repo) | ![setup screen](assets/screenshot-setup.png) |
 | Done | ![done screen](assets/screenshot-done.png) |
 
-*(drop your actual screenshots into an `assets/` folder and update the paths above)*
 
 ## Core Workflow
 
@@ -65,18 +64,18 @@ Still no commit? -> fire off an alert email via Gmail SMTP
 
 ## Architecture
 
-| Layer | Files | Role |
-|---|---|---|
-| API entrypoint | `api/index.py` | Vercel serverless entrypoint, re-exports the FastAPI `app`. |
-| App core | `app/main.py` | Defines all FastAPI routes: `/setup`, `/status`, `/api/cron`, `/check1-3`. |
-| GitHub integration | `app/github/auth.py`, `client.py`, `commits.py`, `init.py` | Authenticates with a PAT, checks for today's commits, and pushes the auto-commit. |
-| Streak alerts | `app/streak/checker.py` | Builds and sends the HTML nag emails over Gmail SMTP. |
-| Config/storage | Upstash Redis (via `upstash-redis`) | Stores the encrypted, single active user config. |
-| Scheduling | `vercel.json` | Defines the daily cron trigger (`24 21 * * *` UTC) hitting `/api/cron`. |
-| Desktop shell | `ssaver/App.axaml.cs`, `ViewLocator.cs`, `Program.cs` | Bootstraps the Avalonia app and resolves views from view models. |
-| Desktop view models | `ViewModels/welcomeViewModel.cs`, `configsViewModel.cs`, `DoneViewModel.cs`, `MainWindowViewModel.cs` | Own navigation state and drive the setup flow. |
-| Desktop views | `Views/welcomeView.axaml`, `configsView.axaml`, `DoneView.axaml` | Dark, purple-accented Avalonia screens for each setup step. |
-| Desktop networking | `Models/Api.cs` | Posts the collected setup data to the `/setup` endpoint. |
+| Layer | Files                                                                                      | Role                                                                              |
+|---|--------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
+| API entrypoint | `api/index.py`                                                                             | Vercel serverless entrypoint, re-exports the FastAPI `app`.                       |
+| App core | `app/main.py`                                                                              | Defines all FastAPI routes: `/setup`, `/status`, `/api/cron`, `/check1-3`.        |
+| GitHub integration | `app/github/auth.py`, `client.py`, `commits.py`, `init.py`                                 | Authenticates with a PAT, checks for today's commits, and pushes the auto-commit. |
+| Streak alerts | `app/streak/checker.py`                                                                    | Builds and sends the HTML nag emails over Gmail SMTP.                             |
+| Config/storage | Upstash Redis (via `upstash-redis`)                                                        | Stores the encrypted, single active user config.                                  |
+| Scheduling | cron-job.org                                                                               | Defines the daily crons triggers.         |
+| Desktop shell | `ssaver/App.axaml.cs`, `ViewLocator.cs`, `Program.cs`                                      | Bootstraps the Avalonia app and resolves views from view models.                  |
+| Desktop view models | `ViewModels/welcomeViewModel.cs`, `configsViewModel.cs`, `DoneViewModel.cs`, `MainWindowViewModel.cs` | Own navigation state and drive the setup flow.                                    |
+| Desktop views | `Views/welcomeView.axaml`, `configsView.axaml`, `DoneView.axaml`                           | Dark, purple-accented Avalonia screens for each setup step.                       |
+| Desktop networking | `Models/Api.cs`                                                                            | Posts the collected setup data to the `/setup` endpoint.                          |
 
 ## Tech Stack
 
@@ -109,7 +108,7 @@ ENCRYPTION_KEY=...      # Fernet key
 smtp=...                # Gmail app password
 ```
 
-Then run the FastAPI app (e.g. with `uvicorn app.main:app --reload`), or deploy it straight to Vercel — `vercel.json` already wires up the daily cron.
+Then run the FastAPI app (e.g. with `uvicorn app.main:app --reload`), or deploy it straight to Vercel , needs cron-job schedualing thou.
 
 **Desktop app**
 
