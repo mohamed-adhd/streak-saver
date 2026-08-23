@@ -11,5 +11,5 @@ def alert():
     with smtplib.SMTP("smtp.gmail.com", 587) as server:
         server.starttls()
         smtp = os.environ["smtp"]
-        server.login("streaksaver.adhd@example.com", smtp)
+        server.login("streaksaver.adhd@gmail.com", smtp)
         server.send_message(msg)
