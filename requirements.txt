@@ -3,4 +3,3 @@ fastapi
 pygithub
 cryptography
 upstash-redis
-HTMLResponse

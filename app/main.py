@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from upstash_redis import Redis
 import os
-import HTMLResponse
+from fastapi.responses import HTMLResponse
 import json
 from cryptography.fernet import Fernet
 from pydantic import BaseModel
