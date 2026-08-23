@@ -56,7 +56,7 @@ def status():
     if not config:
         return {"error": "no config stored yet, call /setup first"}
     return {
-        "token": config["token"] ,
+        "token": "fuh naw" ,
         "repo": config["repo"] ,
         "file": config["file"] ,
         "username": config["username"]
