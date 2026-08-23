@@ -19,9 +19,9 @@ Your GitHub token is encrypted with Fernet before it's stored in Upstash Redis, 
 
 | Screen | Preview |
 |---|---|
-| Welcome | ![welcome screen](assets/screenshot-welcome.png) |
-| Setup (connect repo) | ![setup screen](assets/screenshot-setup.png) |
-| Done | ![done screen](assets/screenshot-done.png) |
+| Welcome | <img width="1280" height="720" alt="image" src="https://github.com/user-attachments/assets/75905d3a-27ab-4192-b6b3-910adbffa224" />|
+| Setup (connect repo) | <img width="1280" height="720" alt="image" src="https://github.com/user-attachments/assets/1aa0c7cc-ebbe-4f69-9040-495291b8c967" />|
+| Done |<img width="1279" height="719" alt="image" src="https://github.com/user-attachments/assets/139cea4e-628d-4033-b86d-81dc56986438" />|
 
 
 ## Core Workflow
