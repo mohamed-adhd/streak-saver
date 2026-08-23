@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from upstash_redis import Redis
 import os
-
+import HTMLResponse
 import json
 from cryptography.fernet import Fernet
 from pydantic import BaseModel
@@ -46,9 +46,70 @@ def setup(data: SetupRequest):
     return {
         "message": "done bitch"
     }
-@app.get("/save")
-def save():
-    return {"status": "saved"}
+from fastapi.responses import HTMLResponse
+
+@app.get("/", response_class=HTMLResponse)
+def root():
+    return """
+    <html>
+      <head>
+        <title>streak-saver</title>
+        <style>
+          body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at 50% 30%, #1b1b26, #0d0d12);
+            font-family: 'Segoe UI', Arial, sans-serif;
+          }
+          .card {
+            text-align: center;
+            padding: 40px;
+          }
+          h1 {
+            color: white;
+            font-size: 42px;
+            margin-bottom: 8px;
+            text-shadow: 0 0 30px rgba(91, 76, 255, 0.4);
+          }
+          .accent {
+            width: 56px;
+            height: 4px;
+            margin: 12px auto 20px;
+            border-radius: 2px;
+            background: linear-gradient(90deg, #5B4CFF, #8F6BFF);
+          }
+          p {
+            color: #9c9cac;
+            font-size: 16px;
+          }
+          .status {
+            display: inline-block;
+            margin-top: 24px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            background: #1b1b24;
+            border: 1px solid #2c2c38;
+            color: #b9afff;
+            font-size: 13px;
+            letter-spacing: 1px;
+          }
+        </style>
+      </head>
+      <body>
+        <div class="card">
+          <h1>streak-saver</h1>
+          <div class="accent"></div>
+          <p>your github streak is being watched, relax twin</p>
+          <div class="status">online dawg</div>
+        </div>
+      </body>
+    </html>
+    """
+
+
 
 @app.get("/status")
 def status():
