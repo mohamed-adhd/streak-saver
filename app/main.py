@@ -74,10 +74,18 @@ def cron():
 # hmm , so i plan on checking from 22 till 23, i ll make 6 checks then
 @app.get("/check1")
 def check1():
-    checker.alert()
+    checker.alert(1)
     return {"message": "alerted 1"}
 
+@app.get("/check2")
+def check1():
+    checker.alert(2)
+    return {"message": "alerted 2"}
 
+@app.get("/check3")
+def check1():
+    checker.alert(3)
+    return {"message": "alerted 3"}
 
 
 
