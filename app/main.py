@@ -6,7 +6,7 @@ import json
 from cryptography.fernet import Fernet
 from pydantic import BaseModel
 import github
-import streak
+from app.streak import checker
 from app.github import init
 from app.github.commits import fetch
 redis = Redis(
