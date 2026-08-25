@@ -10,8 +10,8 @@ A Vercel-hosted watchdog that keeps your GitHub contribution streak alive — ch
 ![MVVM](https://img.shields.io/badge/Pattern-MVVM-8F6BFF?style=flat-square)
 
 ## Overview
-***DISCLAIMER : this project doesn't inflate commits , the app is allowed to only commit 1 time if i miss my day just to preserve my streak , it cannot inflate or fake commits*** 
-streak-saver is a two-part project: a **FastAPI backend deployed on Vercel** that runs on a daily cron, checks whether you've made a commit that day, and auto-commits a small marker line to a file in your repo if you haven't — plus a **desktop setup app** built with C#, Avalonia, and MVVM that walks you through connecting your GitHub account so you never have to touch a config file by hand.
+- ***DISCLAIMER : this project doesn't inflate commits , the app is allowed to only commit 1 time if i miss my day just to preserve my streak , it cannot inflate or fake commits*** 
+- streak-saver is a two-part project: a **FastAPI backend deployed on Vercel** that runs on a daily cron, checks whether you've made a commit that day, and auto-commits a small marker line to a file in your repo if you haven't — plus a **desktop setup app** built with C#, Avalonia, and MVVM that walks you through connecting your GitHub account so you never have to touch a config file by hand.
 
 Your GitHub token is encrypted with Fernet before it's stored in Upstash Redis, so the backend never keeps it in plaintext. Alongside the auto-commit safety net, there's an email-alert system that fires off increasingly chaotic "get back to work" emails in the hours before the streak would break, in case you'd rather save it yourself.
 
